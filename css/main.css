@@ -130,7 +130,6 @@ header .logo {
 
 .nav {
 	gap: 30px;
-	height: 100%;
 	position: absolute;
 	align-items: center;
 	right: 10%;
@@ -146,6 +145,7 @@ header .logo {
 
 .about-me {
 	height: 35vh;
+	min-height: 185px;
 }
 .info {
 	height: 100%;
@@ -256,7 +256,6 @@ footer img {
 		right: 0;
 		flex-direction: column;
 		background-color: rgba(255, 255, 255, 0.9);
-		height: 40vh;
 		border-inline-start: 1px solid #e5e5e5;
 		width: 200px;
 		transform: translateX(100%);

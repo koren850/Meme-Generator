@@ -2,6 +2,7 @@
 
 var gChosenLine;
 var gDownload = false;
+var gStartPos;
 
 function renderEditor(elImg, id) {
     gElGallery.classList.add('hide');
@@ -130,4 +131,31 @@ function OnShare() {
     else gDownload = true
     renderCanvas();
 }
+
+function addMouseListeners() {
+    gCanvas.addEventListener('mousemove', onMove)
+    gCanvas.addEventListener('mousedown', onDown)
+    gCanvas.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+    gCanvas.addEventListener('touchmove', onMove)
+    gCanvas.addEventListener('touchstart', onDown)
+    gCanvas.addEventListener('touchend', onUp)
+}
+
+function onMove() {
+
+}
+
+function onDown() {
+
+}
+
+function onUp() {
+
+}
+
+
+
 

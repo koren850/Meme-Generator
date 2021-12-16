@@ -9,6 +9,8 @@ var gCtx;
 function init() {
     gCanvas = document.getElementById('my-canvas');
     gCtx = gCanvas.getContext('2d');
+    addMouseListeners();
+    addTouchListeners();
     renderMemes();
 }
 
@@ -35,10 +37,6 @@ function renderMemes() {
 function openHamburger() {
     document.querySelector('.nav').classList.toggle('open');
     document.querySelector('.black-screen').classList.toggle('active');
-    var navButtons = document.querySelectorAll('.gallery-button');
-    console.log(navButtons);
-    // navButtons.forEach(btn)
-
 }
 
 
