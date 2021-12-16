@@ -208,6 +208,7 @@ footer img {
 	width: 220px;
 }
 .copyright {
+	width: 220px;
 	font-size: 19px;
 	color: #ffffff;
 	font-weight: 250;
@@ -240,6 +241,11 @@ footer img {
 }
 
 @media (max-width: 900px) {
+	.gallery,
+	.saved-memes,
+	.meme-edit {
+		padding-top: 70px;
+	}
 	header {
 		position: fixed;
 		width: 100%;
@@ -273,8 +279,13 @@ footer img {
 	.hamburger::after {
 		content: "☰";
 	}
+	.controls button,
+	.controls select,
+	.color-pick {
+		margin-inline-start: 0rem;
+	}
 	.controls {
-		margin-inline-start: 1rem;
+		margin-inline-start: 0;
 	}
 	.meme-edit button {
 		height: 2.75rem;
@@ -287,6 +298,7 @@ footer img {
 	.line-add {
 		text-align: center;
 		font-size: 1.5rem;
+		width: 99%;
 	}
 	.color-pick {
 		height: 2.75rem;
@@ -307,6 +319,16 @@ footer img {
 	.control-box {
 		gap: 10px;
 		flex-direction: column;
+	}
+
+	.control-box2,
+	.control-box3,
+	.control-box4,
+	.control-box5 {
+		justify-content: space-around;
+	}
+	.control-box4 select {
+		width: 105px;
 	}
 	.share-list button {
 		width: 3.75rem;
