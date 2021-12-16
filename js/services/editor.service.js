@@ -47,7 +47,6 @@ function moveX(diff) {
 
 
 function updateInputTxt() {
-    console.log(gMeme.lines[gMeme.selectedLineIdx].txt);
     if (gMeme.lines.length === 0) document.querySelector('.line-add').value = '';
     else if (gMeme.selectedLineIdx === gMeme.lines.length) document.querySelector('.line-add').value = gMeme.lines[0].txt;
     else document.querySelector('.line-add').value = gMeme.lines[gMeme.selectedLineIdx].txt;

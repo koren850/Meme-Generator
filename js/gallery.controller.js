@@ -32,6 +32,15 @@ function renderMemes() {
     gElGallery.innerHTML = strHTML
 }
 
+function openHamburger() {
+    document.querySelector('.nav').classList.toggle('open');
+    document.querySelector('.black-screen').classList.toggle('active');
+    var navButtons = document.querySelectorAll('.gallery-button');
+    console.log(navButtons);
+    // navButtons.forEach(btn)
+
+}
+
 
 
 

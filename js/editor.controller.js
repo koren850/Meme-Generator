@@ -53,47 +53,56 @@ function drawImg(elImg) {
 
 
 function onchangeText(txt) {
+    if (gDownload) return
     setLineTxt(txt);
     changeText(txt);
     renderCanvas();
 }
 
 function onFontSize(diff) {
+    if (gDownload) return
     changeFontSize(diff);
     renderCanvas();
 }
 
 function onChangeTextColor(color) {
+    if (gDownload) return
     changeTextColor(color);
     renderCanvas();
 }
 
 function onChangeStrokeColor(color) {
+    if (gDownload) return
     changeStrokeColor(color);
     renderCanvas();
 }
 
 function onSwitchLine() {
+    if (gDownload) return
     switchLine();
     renderCanvas();
 }
 function onAddLine() {
+    if (gDownload) return
     addLine();
     renderCanvas();
 }
 
 function onDeleteLine() {
+    if (gDownload) return
     deleteLine();
     renderCanvas();
 }
 
 function onMoveY(diff) {
+    if (gDownload) return
     var change = (diff === 'add') ? 30 : -30;
     moveY(change);
     renderCanvas();
 }
 
 function onMoveX(diff) {
+    if (gDownload) return
     if (diff === 'center') moveX(diff)
     else {
         var change = (diff === 'add') ? -30 : 30;
@@ -102,7 +111,8 @@ function onMoveX(diff) {
     renderCanvas();
 }
 
-function onSetLang(font) {
+function onSetFont(font) {
+    if (gDownload) return
     if (!gChosenLine) return;
     setLang(font);
     renderCanvas();

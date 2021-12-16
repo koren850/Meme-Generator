@@ -8,8 +8,10 @@
 		<link rel="stylesheet" href="css/main.css" />
 	</head>
 	<body onload="init()">
+		<div onclick="openHamburger()" class="black-screen"></div>
 		<header>
 			<img class="logo" src="imgs/LOGO.png" alt="" />
+			<div onclick="openHamburger()" class="hamburger hide"></div>
 			<div class="nav flex">
 				<h1 class="flex gallery-button" onclick="renderGallery()">Gallery</h1>
 				<h1 class="flex gallery-button" onclick="renderSavedMemes()">
@@ -67,10 +69,10 @@
 					</div>
 					<div class="control-box2 flex">
 						<button onclick="onMoveY('add')">
-							<img class="down" src="/imgs/icons/downarrow.png" alt="" />
+							<img class="down" src="imgs/icons/downarrow.png" alt="" />
 						</button>
 						<button onclick="onMoveY('substract')">
-							<img class="up" src="/imgs/icons/uparrow.png" alt="" />
+							<img class="up" src="imgs/icons/uparrow.png" alt="" />
 						</button>
 						<button onclick="onSwitchLine()" class="select-line">
 							<img class="move-line" src="imgs/icons/up-and-down.png" alt="" />
@@ -120,7 +122,7 @@
 						</button>
 					</div>
 					<div class="control-box4 flex">
-						<select onchange="onSetLang(this.value)">
+						<select onchange="onSetFont(this.value)">
 							<option value="impact">Impact</option>
 							<option value="bangers">Bangers</option>
 							<option value="fredoka">Fredoka One</option>
