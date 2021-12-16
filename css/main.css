@@ -240,13 +240,17 @@ footer img {
 }
 
 @media (max-width: 900px) {
+	header {
+		position: fixed;
+		width: 100%;
+	}
 	.nav {
 		position: fixed;
 		top: 0;
 		right: 0;
 		flex-direction: column;
 		background-color: rgba(255, 255, 255, 0.9);
-		height: 100vh;
+		height: 40vh;
 		border-inline-start: 1px solid #e5e5e5;
 		width: 200px;
 		transform: translateX(100%);
@@ -283,7 +287,6 @@ footer img {
 	.line-add {
 		text-align: center;
 		font-size: 1.5rem;
-		width: 90%;
 	}
 	.color-pick {
 		height: 2.75rem;
@@ -302,10 +305,19 @@ footer img {
 		width: 300px;
 	}
 	.control-box {
+		gap: 10px;
 		flex-direction: column;
 	}
 	.share-list button {
 		width: 3.75rem;
+	}
+	.socials {
+		gap: 15px;
+	}
+	.my-img {
+		padding-inline-start: 5px;
+		width: 180px;
+		height: 180px;
 	}
 }
 
@@ -325,6 +337,7 @@ footer img {
 }
 
 .active {
+	position: fixed;
 	opacity: 0.3;
-	z-index: 1;
+	z-index: 0;
 }
