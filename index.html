@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Koren Memegen</title>
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+	<body onload="init()">
+		<header>
+			<img class="logo" src="imgs/LOGO.png" alt="" />
+			<div class="nav flex">
+				<h1 class="flex gallery-button" onclick="renderGallery()">Gallery</h1>
+				<h1 class="flex gallery-button" onclick="renderSavedMemes()">
+					Saved Memes
+					<h1 class="flex gallery-button"><a href="#about-me">About-me</a></h1>
+				</h1>
+			</div>
+		</header>
+		<section class="filters"></section>
+
+		<section class="gallery flex"></section>
+
+		<section class="saved-memes flex hide"></section>
+
+		<section id="about-me" class="about-me">
+			<div class="info flex">
+				<img class="my-img flex" src="imgs/koren.jpg" alt="" />
+				<div class="info2 flex">
+					<p class="flex">Hi, my name is koren aharon and im a meme lord</p>
+					<div class="socials flex">
+						<a
+							target="blank"
+							href="https://www.instagram.com/koren854/"
+							class="flex"
+						>
+							<img class="social" src="imgs/icons/instagram.png" alt="" />
+						</a>
+						<a href="#" class="flex">
+							<img class="social" src="imgs/icons/linkedin-logo.png" alt="" />
+						</a>
+						<a target="blank" href="https://github.com/koren850" class="flex">
+							<img class="social" src="imgs/icons/github-logo.png" alt="" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="meme-edit hide">
+			<div class="control-box flex">
+				<canvas
+					class="my-canvas"
+					id="my-canvas"
+					height="500"
+					width="500"
+				></canvas>
+				<div class="controls flex">
+					<div class="control-box1 flex">
+						<input
+							oninput="onchangeText(this.value)"
+							class="line-add"
+							type="text"
+							autofocus
+						/>
+					</div>
+					<div class="control-box2 flex">
+						<button onclick="onMoveY('add')">
+							<img class="down" src="/imgs/icons/downarrow.png" alt="" />
+						</button>
+						<button onclick="onMoveY('substract')">
+							<img class="up" src="/imgs/icons/uparrow.png" alt="" />
+						</button>
+						<button onclick="onSwitchLine()" class="select-line">
+							<img class="move-line" src="imgs/icons/up-and-down.png" alt="" />
+						</button>
+						<button onclick="onAddLine()">
+							<img class="add" src="imgs/icons/add.png" alt="" />
+						</button>
+						<button onclick="onDeleteLine()">
+							<img class="trash" src="imgs/icons/trash.png" alt="" />
+						</button>
+					</div>
+					<div class="control-box3 flex">
+						<button onclick="onFontSize('add')">
+							<img
+								class="up-font"
+								src="imgs/icons/increase font - icon.png"
+								alt=""
+							/>
+						</button>
+						<button onclick="onFontSize('subtract')">
+							<img
+								class="down-font"
+								src="imgs/icons/decrease font - icon.png"
+								alt=""
+							/>
+						</button>
+						<button onclick="onMoveX('add')">
+							<img
+								class="align-left"
+								src="imgs/icons/align-to-left.png"
+								alt=""
+							/>
+						</button>
+						<button onclick="onMoveX('center')">
+							<img
+								class="align-center"
+								src="imgs/icons/center-text-alignment.png"
+								alt=""
+							/>
+						</button>
+						<button onclick="onMoveX('substract')">
+							<img
+								class="align-right"
+								src="imgs/icons/align-to-right.png"
+								alt=""
+							/>
+						</button>
+					</div>
+					<div class="control-box4 flex">
+						<select onchange="onSetLang(this.value)">
+							<option value="impact">Impact</option>
+							<option value="bangers">Bangers</option>
+							<option value="fredoka">Fredoka One</option>
+							<option value="orbitron">Orbitron</option>
+							<option value="permanentMarker">PermanentMarker</option>
+						</select>
+						<div class="color-pick">
+							<button type="button">
+								<img
+									class="text-stroke"
+									src="imgs/icons/text stroke.png"
+									alt=""
+								/>
+							</button>
+							<input
+								onchange="onChangeStrokeColor(this.value,)"
+								value="#ffffff"
+								class="stroke-color"
+								type="color"
+							/>
+						</div>
+						<div class="color-pick">
+							<button type="button">
+								<img
+									class="text-stroke"
+									src="imgs/icons/paint-board-and-brush.png"
+									alt=""
+								/>
+							</button>
+							<input
+								onchange="onChangeTextColor(this.value,)"
+								value="#000000"
+								class="text-color"
+								type="color"
+							/>
+						</div>
+					</div>
+					<div class="control-box5 flex">
+						<button onclick="OnShare()">Share</button>
+						<div class="control-box6 flex hide">
+							<ul class="share-list flex">
+								<button>
+									<li>
+										Download as jpeg
+										<a
+											onclick="ondownload(this)"
+											id="download"
+											href="#"
+											class="flex"
+											download="my-img.jpeg"
+										>
+										</a>
+									</li>
+								</button>
+								<button onclick="onSaveMeme()">
+									<li>Save too my memes</li>
+								</button>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="flex">
+			<div class="footer-items flex">
+				<img class="flex" src="/imgs/LOGO.png" alt="" />
+				<span class="copyright">all rights reserved 2021</span>
+			</div>
+		</footer>
+
+		<script src="js/services/storage.service.js"></script>
+		<script src="js/services/editor.service.js"></script>
+		<script src="js/services/meme.service.js"></script>
+		<script src="js/editor.controller.js"></script>
+		<script src="js/gallery.controller.js"></script>
+		<script src="js/saved.memes.controller.js"></script>
+	</body>
+</html>

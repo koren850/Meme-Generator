@@ -1,0 +1,240 @@
+* {
+	box-sizing: border-box;
+}
+
+/* fonts */
+@font-face {
+	font-family: bangers;
+	src: url(../fonts/Bangers/Bangers-Regular.ttf);
+}
+@font-face {
+	font-family: fredoka;
+	src: url(../fonts/Fredoka/FredokaOne-Regular.ttf);
+}
+@font-face {
+	font-family: orbitron;
+	src: url(../fonts/Orbitron/Orbitron-Black.ttf);
+}
+@font-face {
+	font-family: permanentMarker;
+	src: url(../fonts/PermanentMarker/PermanentMarker-Regular.ttf);
+}
+@font-face {
+	font-family: montserrat;
+	src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+/* Helpers */
+.flex {
+	display: flex;
+}
+
+body {
+	overflow-x: hidden;
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgb(255, 255, 255);
+}
+
+.hide {
+	display: none;
+}
+
+header {
+	position: relative;
+	height: 65px;
+	background-color: rgb(255, 127, 0);
+}
+
+header .logo {
+	width: 135px;
+	position: absolute;
+	top: 50%;
+	transform: translate(0%, -50%);
+	left: 50px;
+}
+
+.gallery,
+.saved-memes {
+	background-color: rgb(227, 227, 227);
+	padding-bottom: 20px;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+}
+
+.gallery img,
+.saved-memes img {
+	border-radius: 15px;
+	margin-top: 20px;
+	width: 350px;
+}
+
+.meme-edit button {
+	padding: 0;
+	height: 3.75rem;
+	width: 3.75rem;
+}
+.meme-edit img {
+	height: 3.4375rem;
+	width: 3.4375rem;
+}
+
+.line-add {
+	text-align: center;
+	font-size: 2rem;
+	width: 100%;
+}
+
+.color-pick {
+	position: relative;
+	display: inline-block;
+	height: 3.75rem;
+	width: 3.75rem;
+}
+.color-pick button {
+	position: relative;
+}
+.stroke-color,
+.text-color {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.controls {
+	margin-inline-start: 4rem;
+	flex-direction: column;
+	gap: 1rem;
+}
+.controls button,
+.controls select,
+.color-pick {
+	margin-inline-start: 1rem;
+}
+.color-pick button {
+	margin: 0;
+}
+
+.control-box {
+	justify-content: center;
+	align-items: center;
+}
+.control-box4 select {
+	width: 136px;
+}
+
+.nav {
+	gap: 30px;
+	height: 100%;
+	position: absolute;
+	align-items: center;
+	right: 10%;
+}
+.gallery-button {
+	cursor: pointer;
+}
+.gallery-button a {
+	text-decoration: none;
+	color: #000000;
+	transition: all ease 0.5s;
+}
+
+.about-me {
+	height: 35vh;
+}
+.info {
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.my-img {
+	width: 225px;
+	height: 225px;
+	border-radius: 50%;
+}
+.info p {
+	font-size: 20px;
+	color: #000000;
+	font-weight: 400;
+	font-family: "Montserrat";
+}
+.info2 {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.info2 a {
+	cursor: pointer;
+	background-color: #ff7f00;
+	border-radius: 12px;
+	border: none;
+	position: relative;
+	width: 45px;
+	height: 45px;
+}
+.info2 a:hover {
+	background-color: #944d05;
+}
+.socials {
+	gap: 20px;
+}
+.social {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-height: 30px;
+}
+
+footer {
+	height: 200px;
+	background-color: rgb(255, 127, 0);
+	justify-content: center;
+	align-items: center;
+}
+.footer-items {
+	flex-direction: column;
+	gap: 20px;
+}
+
+footer img {
+	width: 220px;
+}
+.copyright {
+	font-size: 19px;
+	color: #ffffff;
+	font-weight: 250;
+	font-family: "Montserrat";
+	text-align: center;
+}
+
+.share-list {
+	margin: 0;
+	list-style: none;
+}
+.share-list button {
+	position: relative;
+}
+
+.share-list li {
+	text-align: center;
+	font-size: 0.95em;
+}
+
+.share-list li a {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 3.75rem;
+	width: 3.75rem;
+	text-decoration: none;
+	color: #000000;
+}
