@@ -52,7 +52,7 @@ function updateInputTxt() {
     else document.querySelector('.line-add').value = gMeme.lines[gMeme.selectedLineIdx].txt;
 }
 
-function setLang(font) {
+function setFont(font) {
     switch (font) {
         case 'impact':
             gChosenLine.font = 'impact';

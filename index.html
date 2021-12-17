@@ -20,7 +20,24 @@
 				</h1>
 			</div>
 		</header>
-		<section class="filters"></section>
+		<section class="filters flex">
+			<input
+				class="flex"
+				list="keys"
+				placeholder="fillter"
+				oninput="onFilter(this.value)"
+			/>
+			<datalist id="keys">
+				<option value="funny"></option>
+				<option value="politics"></option>
+				<option value="dogs"></option>
+				<option value="tv"></option>
+				<option value="celebs"></option>
+				<option value="baby"></option>
+				<option value="cute"></option>
+				<option value="cats"></option>
+			</datalist>
+		</section>
 
 		<section class="gallery flex"></section>
 

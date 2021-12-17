@@ -2,25 +2,24 @@
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 var gImgs = [
-    { id: 1, url: 'imgs/memes/1.jpg', keywords: ['celebs', 'funny'] },
+    { id: 1, url: 'imgs/memes/1.jpg', keywords: ['celebs', 'funny', 'politics'] },
     { id: 2, url: 'imgs/memes/2.jpg', keywords: ['cute', 'dogs'] },
-    { id: 3, url: 'imgs/memes/3.jpg', keywords: ['cute', 'dogs'] },
-    { id: 4, url: 'imgs/memes/4.jpg', keywords: ['cute', 'dogs'] },
-    { id: 5, url: 'imgs/memes/5.jpg', keywords: ['cute', 'dogs'] },
-    { id: 6, url: 'imgs/memes/6.jpg', keywords: ['cute', 'dogs'] },
-    { id: 7, url: 'imgs/memes/7.jpg', keywords: ['cute', 'dogs'] },
-    { id: 8, url: 'imgs/memes/8.jpg', keywords: ['cute', 'dogs'] },
-    { id: 9, url: 'imgs/memes/9.jpg', keywords: ['cute', 'dogs'] },
-    { id: 10, url: 'imgs/memes/10.jpg', keywords: ['cute', 'dogs'] },
-    { id: 11, url: 'imgs/memes/11.jpg', keywords: ['cute', 'dogs'] },
-    { id: 12, url: 'imgs/memes/12.jpg', keywords: ['cute', 'dogs'] },
-    { id: 13, url: 'imgs/memes/13.jpg', keywords: ['cute', 'dogs'] },
-    { id: 14, url: 'imgs/memes/14.jpg', keywords: ['cute', 'dogs'] },
-    { id: 15, url: 'imgs/memes/15.jpg', keywords: ['cute', 'dogs'] },
-    { id: 16, url: 'imgs/memes/16.jpg', keywords: ['cute', 'dogs'] },
-    { id: 17, url: 'imgs/memes/17.jpg', keywords: ['cute', 'dogs'] },
-    { id: 18, url: 'imgs/memes/18.jpg', keywords: ['cute', 'dogs'] },
-
+    { id: 3, url: 'imgs/memes/3.jpg', keywords: ['cute', 'dogs', 'baby'] },
+    { id: 4, url: 'imgs/memes/4.jpg', keywords: ['cute', 'cats'] },
+    { id: 5, url: 'imgs/memes/5.jpg', keywords: ['cute', 'baby'] },
+    { id: 6, url: 'imgs/memes/6.jpg', keywords: ['celebs', 'funny'] },
+    { id: 7, url: 'imgs/memes/7.jpg', keywords: ['cute', 'baby'] },
+    { id: 8, url: 'imgs/memes/8.jpg', keywords: ['celebs', 'tv'] },
+    { id: 9, url: 'imgs/memes/9.jpg', keywords: ['cute', 'baby', 'funny'] },
+    { id: 10, url: 'imgs/memes/10.jpg', keywords: ['celebs', 'funny', 'politics'] },
+    { id: 11, url: 'imgs/memes/11.jpg', keywords: ['funny', 'celebs'] },
+    { id: 12, url: 'imgs/memes/12.jpg', keywords: ['celebs', 'tv'] },
+    { id: 13, url: 'imgs/memes/13.jpg', keywords: ['celebs', 'tv'] },
+    { id: 14, url: 'imgs/memes/14.jpg', keywords: ['tv', 'celebs'] },
+    { id: 15, url: 'imgs/memes/15.jpg', keywords: ['tv', 'celebs'] },
+    { id: 16, url: 'imgs/memes/16.jpg', keywords: ['funny', 'tv', 'celebs'] },
+    { id: 17, url: 'imgs/memes/17.jpg', keywords: ['celebs', 'politics'] },
+    { id: 18, url: 'imgs/memes/18.jpg', keywords: ['tv'] },
 ]
 var gMeme = {
     selectedImgId: 0,
@@ -154,7 +153,8 @@ function onSaveMeme() {
     const url = gCanvas.toDataURL()
     var savedMemeId = gMeme.selectedImgId;
     var lines = gMeme.lines
-    var obj = { id: savedMemeId, lines: lines, url: url }
+    var keywords = gImgs[gMeme.selectedImgId].keywords
+    var obj = { id: savedMemeId, lines: lines, url: url, keywords: keywords, mobile: gMobile }
     var savedMemes = loadFromStorage(STORAGE_KEY);
     savedMemes.push(obj)
     saveToStorage(STORAGE_KEY, savedMemes)

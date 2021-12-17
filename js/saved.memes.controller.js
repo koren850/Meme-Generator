@@ -8,6 +8,7 @@ function renderSavedMemes() {
     gElSavedMemes.classList.remove('hide');
     gElAboutMe.classList.remove('hide');
     gElGallery.classList.remove('hide');
+    gElFilters.classList.remove('hide');
     gElGallery.classList.add('hide');
     gElMemeEdit.classList.add('hide');
     resetLines()
@@ -26,6 +27,10 @@ function renderEditorSaved(elImg, id) {
     gElSavedMemes.classList.add('hide');
     gElMemeEdit.classList.remove('hide')
     renderSavedImg(elImg, id)
+    if (gCanvas.getBoundingClientRect().width === 300 && gCanvas.getBoundingClientRect().height === 300) {
+        gMobile = true
+    }
+    else gMobile = false
 }
 
 function renderSavedImg(elImg, id) {
@@ -62,4 +67,6 @@ function drawSavedText(elImg) {
         setLineWidth(textWidth, line);
     });
 }
+
+
 

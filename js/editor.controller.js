@@ -2,14 +2,20 @@
 
 var gChosenLine;
 var gDownload = false;
-var gStartPos;
+var gIsClicking = false
 
 function renderEditor(elImg, id) {
     gElGallery.classList.add('hide');
     gElAboutMe.classList.add('hide');
     gElGallery.classList.add('hide');
+    gElFilters.classList.add('hide');
     gElSavedMemes.classList.add('hide');
     gElMemeEdit.classList.remove('hide');
+    if (gCanvas.getBoundingClientRect().width === 300 && gCanvas.getBoundingClientRect().height === 300) {
+        renderMobileLines();
+        gMobile = true;
+    }
+    else gMobile = false;
     renderImg(elImg, id);
 }
 
@@ -25,8 +31,8 @@ function renderImg(elImg, id) {
 function renderCanvas() {
     const selectedImg = getImg();
     drawImg(selectedImg);
-    setTimeout(drawText, 1);
-    if (!gDownload) setTimeout(focusText, 1);
+    setTimeout(drawText, 5);
+    if (!gDownload) setTimeout(focusText, 5);
 
 }
 
@@ -115,7 +121,7 @@ function onMoveX(diff) {
 function onSetFont(font) {
     if (gDownload) return
     if (!gChosenLine) return;
-    setLang(font);
+    setFont(font);
     renderCanvas();
 }
 
@@ -144,18 +150,42 @@ function addTouchListeners() {
     gCanvas.addEventListener('touchend', onUp)
 }
 
-function onMove() {
-
+function onMove(ev) {
+    if (!gIsClicking) return;
+    if (ev.type === 'touchmove') ev.preventDefault();
+    // console.log(ev);
 }
 
-function onDown() {
-
+function onDown(ev) {
+    gIsClicking = true;
+    //the rect i used
+    // (line.posX - line.width / 2) - 10, (line.posY - line.fontSize) - 5, line.width + 20, line.size + line.fontSize)
+    var lines = getLines();
+    var clickedLineIdx = lines.findIndex((line) => {
+        return (ev.offsetX > (line.posX - line.width / 2) - 10 &&
+            ev.offsetX < (line.posX + line.width / 2) + 10 &&
+            ev.offsetY > (line.posY - line.fontSize) - 5 &&
+            ev.offsetY < ((line.posY - line.fontSize) - 5) + (line.size + line.fontSize))
+    });
+    if (clickedLineIdx === -1) return
+    if (clickedLineIdx === gChosenLine) return
+    else {
+        gMeme.selectedLineIdx = clickedLineIdx
+        updateInputTxt();
+        renderCanvas();
+    }
 }
 
-function onUp() {
-
+function onUp(ev) {
+    gIsClicking = false;
+    console.log('up');
 }
 
+function renderMobileLines() {
+    gCanvas.width = 300;
+    gCanvas.height = 300;
+    resetLines();
+}
 
 
 
