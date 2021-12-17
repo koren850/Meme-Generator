@@ -2,7 +2,10 @@
 
 var gChosenLine;
 var gDownload = false;
-var gIsClicking = false
+var gIsClicking = false;
+var gCurrClickIsLine = false;
+var gStartPos;
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 
 function renderEditor(elImg, id) {
     gElGallery.classList.add('hide');
@@ -151,8 +154,15 @@ function addTouchListeners() {
 }
 
 function onMove(ev) {
-    if (!gIsClicking) return;
+    if (!gIsClicking || !gCurrClickIsLine) return;
     if (ev.type === 'touchmove') ev.preventDefault();
+    const pos = getEvPos(ev)
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    moveCircle(dx, dy)
+    gStartPos = pos
+    renderCanvas()
+
     // console.log(ev);
 }
 
@@ -168,8 +178,13 @@ function onDown(ev) {
             ev.offsetY < ((line.posY - line.fontSize) - 5) + (line.size + line.fontSize))
     });
     if (clickedLineIdx === -1) return
+
     if (clickedLineIdx === gChosenLine) return
     else {
+        const pos = getEvPos(ev)
+        gStartPos = pos
+        gCanvas.style.cursor = 'grabbing'
+        gCurrClickIsLine = true
         gMeme.selectedLineIdx = clickedLineIdx
         updateInputTxt();
         renderCanvas();
@@ -178,6 +193,8 @@ function onDown(ev) {
 
 function onUp(ev) {
     gIsClicking = false;
+    gCurrClickIsLine = false;
+    gCanvas.style.cursor = 'grab'
     console.log('up');
 }
 
@@ -186,6 +203,30 @@ function renderMobileLines() {
     gCanvas.height = 300;
     resetLines();
 }
+
+
+function getEvPos(ev) {
+    var pos = {
+        x: ev.offsetX,
+        y: ev.offsetY
+    }
+    if (gTouchEvs.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft,
+            y: ev.pageY - ev.target.offsetTop
+        }
+    }
+    return pos
+}
+
+function moveCircle(dx, dy) {
+    gChosenLine.posX += dx
+    gChosenLine.posY += dy
+
+}
+
 
 
 
