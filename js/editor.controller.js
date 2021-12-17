@@ -155,15 +155,12 @@ function addTouchListeners() {
 
 function onMove(ev) {
     if (!gIsClicking || !gCurrClickIsLine) return;
-    if (ev.type === 'touchmove') ev.preventDefault();
     const pos = getEvPos(ev)
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
     moveCircle(dx, dy)
     gStartPos = pos
     renderCanvas()
-
-    // console.log(ev);
 }
 
 function onDown(ev) {
@@ -193,9 +190,8 @@ function onDown(ev) {
 
 function onUp(ev) {
     gIsClicking = false;
-    gCurrClickIsLine = false;
+    if (!ev.type === 'touchend') gCurrClickIsLine = false;
     gCanvas.style.cursor = 'grab'
-    console.log('up');
 }
 
 function renderMobileLines() {
