@@ -135,6 +135,26 @@ header .logo {
 .control-box4 select {
 	width: 136px;
 }
+.control-box4 select [name="impact"] {
+	font-family: impact;
+	font-size: 2rem;
+}
+.control-box4 select [name="Bangers"] {
+	font-family: bangers;
+	font-size: 2rem;
+}
+.control-box4 select [name="Fredoka-One"] {
+	font-family: fredoka;
+	font-size: 1.5rem;
+}
+.control-box4 select [name="Orbitron"] {
+	font-family: orbitron;
+	font-size: 1.5rem;
+}
+.control-box4 select [name="PermanentMarker"] {
+	font-family: permanentMarker;
+	font-size: 1.3rem;
+}
 
 .nav {
 	gap: 30px;

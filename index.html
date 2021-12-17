@@ -140,11 +140,13 @@
 					</div>
 					<div class="control-box4 flex">
 						<select onchange="onSetFont(this.value)">
-							<option value="impact">Impact</option>
-							<option value="bangers">Bangers</option>
-							<option value="fredoka">Fredoka One</option>
-							<option value="orbitron">Orbitron</option>
-							<option value="permanentMarker">PermanentMarker</option>
+							<option name="impact" value="impact">Impact</option>
+							<option name="Bangers" value="bangers">Bangers</option>
+							<option name="Fredoka-One" value="fredoka">Fredoka</option>
+							<option name="Orbitron" value="orbitron">Orbitron</option>
+							<option name="PermanentMarker" value="permanentMarker">
+								PermanentMarker
+							</option>
 						</select>
 						<div class="color-pick">
 							<button type="button">
@@ -155,7 +157,7 @@
 								/>
 							</button>
 							<input
-								onchange="onChangeStrokeColor(this.value,)"
+								oninput="onChangeStrokeColor(this.value,)"
 								value="#ffffff"
 								class="stroke-color"
 								type="color"
@@ -170,7 +172,7 @@
 								/>
 							</button>
 							<input
-								onchange="onChangeTextColor(this.value,)"
+								oninput="onChangeTextColor(this.value,)"
 								value="#000000"
 								class="text-color"
 								type="color"
