@@ -155,6 +155,11 @@ function addTouchListeners() {
 
 function onMove(ev) {
     if (!gIsClicking || !gCurrClickIsLine || gDownload) return;
+    if (ev.offsetX >= gCanvas.width - 1 || ev.offsetX <= 1 || ev.offsetY >= gCanvas.height - 1 || ev.offsetY <= 1) {
+        console.log(ev);
+        gIsClicking = false
+        return
+    }
     const pos = getEvPos(ev)
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y

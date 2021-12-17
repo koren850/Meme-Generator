@@ -66,9 +66,17 @@ header .logo {
 
 .gallery img,
 .saved-memes img {
+	cursor: pointer;
 	border-radius: 15px;
 	margin-top: 20px;
 	width: 350px;
+	transition: opacity 0.3s, box-shadow 0.3s;
+}
+.gallery img:hover,
+.saved-memes img:hover {
+	position: relative;
+	box-shadow: 15px 15px 50px rgb(0 0 0 /100%);
+	opacity: 90%;
 }
 
 .meme-edit button {
@@ -264,6 +272,7 @@ footer img {
 	align-items: center;
 }
 .filters input {
+	cursor: pointer;
 	height: 2rem;
 	margin-inline-start: 10px;
 }
@@ -271,7 +280,7 @@ footer img {
 @media (max-width: 900px) {
 	.gallery img,
 	.saved-memes img {
-		width: 200px;
+		width: 180px;
 	}
 
 	.saved-memes,
