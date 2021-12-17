@@ -132,6 +132,7 @@ header .logo {
 	gap: 30px;
 	position: absolute;
 	align-items: center;
+	height: 100%;
 	right: 10%;
 }
 .gallery-button {
@@ -289,6 +290,7 @@ footer img {
 	}
 
 	.nav {
+		height: auto;
 		position: fixed;
 		top: 0;
 		right: 0;
