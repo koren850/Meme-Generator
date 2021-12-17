@@ -154,7 +154,7 @@ function addTouchListeners() {
 }
 
 function onMove(ev) {
-    if (!gIsClicking || !gCurrClickIsLine) return;
+    if (!gIsClicking || !gCurrClickIsLine || gDownload) return;
     const pos = getEvPos(ev)
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
@@ -164,6 +164,7 @@ function onMove(ev) {
 }
 
 function onDown(ev) {
+    if (gDownload) return;
     gIsClicking = true;
     //the rect i used
     // (line.posX - line.width / 2) - 10, (line.posY - line.fontSize) - 5, line.width + 20, line.size + line.fontSize)
