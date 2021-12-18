@@ -10,7 +10,7 @@
 	<body onload="init()">
 		<div onclick="openHamburger()" class="black-screen"></div>
 		<header>
-			<img class="logo" src="imgs/LOGO.png" alt="" />
+			<img onclick="renderGallery()" class="logo" src="imgs/LOGO.png" alt="" />
 			<div onclick="openHamburger()" class="hamburger hide"></div>
 			<div class="nav flex">
 				<h1 class="flex gallery-button" onclick="renderGallery()">Gallery</h1>
@@ -84,6 +84,8 @@
 		<section class="meme-edit hide">
 			<div class="control-box flex">
 				<canvas class="my-canvas" id="my-canvas" height="500" width="500"></canvas>
+				<div class="share-container"></div>
+				<img class="hiddedUploadPhoto hide" src="" alt="" />
 				<div class="controls flex">
 					<div class="control-box1 flex">
 						<input oninput="onchangeText(this.value)" class="line-add" type="text" autofocus />

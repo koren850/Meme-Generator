@@ -31,7 +31,7 @@ function renderGallery() {
 function renderMemes(fillter = 'none', imgs = null) {
     if (fillter === 'none' || fillter === '') var memes = getImgs();
     else (memes = imgs)
-    var strHTML = '';
+    var strHTML = '<div style="border:1px solid" border class="flex"><input type="file" class="file-input flex" name="upload" oninput="onImgInput(event)" /> will support all aspect ratio soon! \n (for now only 1:1)</div>';
     memes.forEach((meme) => {
         strHTML += `<img class='flex' id='${`img-${meme.id}`}' onclick='renderEditor(this, ${meme.id})' src='${meme.url}' alt='' />`
     });

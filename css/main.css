@@ -48,11 +48,16 @@ header {
 }
 
 header .logo {
+	cursor: pointer;
 	width: 135px;
 	position: absolute;
 	top: 50%;
 	transform: translate(0%, -50%);
 	left: 50px;
+	transition: all ease 0.5s;
+}
+header .logo:hover {
+	box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.6);
 }
 
 .gallery,
@@ -65,15 +70,29 @@ header .logo {
 }
 
 .gallery img,
-.saved-memes img {
+.saved-memes img,
+.gallery div {
 	cursor: pointer;
 	border-radius: 15px;
 	margin-top: 20px;
 	width: 350px;
 	transition: opacity 0.3s, box-shadow 0.3s;
 }
+.gallery div {
+	font-family: montserrat;
+	gap: 40px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.gallery div input {
+	direction: rtl;
+	text-align: center;
+	font-family: montserrat;
+}
 .gallery img:hover,
-.saved-memes img:hover {
+.saved-memes img:hover,
+.gallery div:hover {
 	position: relative;
 	box-shadow: 15px 15px 50px rgb(0 0 0 /100%);
 	opacity: 90%;
@@ -350,10 +369,14 @@ footer img {
 
 @media (max-width: 900px) {
 	.gallery img,
-	.saved-memes img {
+	.saved-memes img,
+	.gallery div,
+	.gallery div input {
 		width: 180px;
 	}
-
+	.gallery div {
+		height: 180px;
+	}
 	.saved-memes,
 	.meme-edit {
 		padding-top: 70px;

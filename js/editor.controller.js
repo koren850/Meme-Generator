@@ -7,7 +7,8 @@ var gCurrClickIsLine = false;
 var gStartPos;
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 
-function renderEditor(elImg, id) {
+
+function renderEditor(elImg, id = -1) {
     gElGallery.classList.add('hide');
     gElAboutMe.classList.add('hide');
     gElGallery.classList.add('hide');
@@ -24,7 +25,8 @@ function renderEditor(elImg, id) {
 }
 
 function setImgTorender(id) {
-    var img = getMemeByid(id);
+    if (id === -1) var img = -1
+    else img = getMemeByid(id);
     var memes = getMeme();
     memes.selectedImgId = img.id;
     updateInputTxt();
@@ -32,7 +34,8 @@ function setImgTorender(id) {
 }
 
 function renderCanvas() {
-    const selectedImg = getImg();
+    var selectedImg = getImg();
+    if (!selectedImg) selectedImg = document.querySelector('.hiddedUploadPhoto')
     drawImg(selectedImg);
     setTimeout(drawText, 5);
     if (!gDownload) setTimeout(focusText, 5);
@@ -233,6 +236,24 @@ function moveCircle(dx, dy) {
     gChosenLine.posX += dx
     gChosenLine.posY += dy
 
+}
+
+function onImgInput(ev) {
+    loadImageFromInput(ev, drawImg)
+    renderEditor(0, -1);
+}
+
+function loadImageFromInput(ev, onImageReady) {
+    document.querySelector('.share-container').innerHTML = ''
+    var reader = new FileReader()
+    reader.onload = (event) => {
+        var img = new Image()
+        // Render on canvas
+        img.onload = onImageReady.bind(null, img)
+        img.src = event.target.result
+        document.querySelector('.hiddedUploadPhoto').src = img.src
+    }
+    reader.readAsDataURL(ev.target.files[0])
 }
 
 
