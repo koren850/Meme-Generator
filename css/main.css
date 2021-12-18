@@ -306,6 +306,7 @@ footer img {
 	height: 100px;
 	width: 100%;
 	align-items: center;
+	justify-content: space-between;
 }
 .filters input {
 	text-align: center;
@@ -327,6 +328,22 @@ footer img {
 
 .red {
 	background-color: red;
+}
+
+.keywords ul {
+	margin: 0;
+	padding: 0;
+	margin-inline-end: 50px;
+	flex-direction: row;
+}
+.keywords ul li {
+	font-family: montserrat;
+	cursor: pointer;
+	margin-inline-start: 20px;
+	align-items: center;
+}
+.keywords ul li:hover {
+	box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 900px) {
@@ -449,6 +466,12 @@ footer img {
 		padding-inline-start: 5px;
 		width: 180px;
 		height: 180px;
+	}
+	.filters {
+		flex-direction: column;
+	}
+	.keywords ul {
+		margin-bottom: 30px;
 	}
 }
 

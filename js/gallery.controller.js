@@ -13,6 +13,7 @@ function init() {
     addMouseListeners();
     addTouchListeners();
     renderMemes();
+    changeKeyWordsFontOnInit()
 }
 
 function renderGallery() {
@@ -50,7 +51,33 @@ function onFilter(key) {
         if (img.keywords.findIndex(imgKey => imgKey === key) !== -1) filterImg.push(img);
     });
     renderMemes(key, filterImg);
+}
+function calcFillterAmmount(key) {
+    var imgs = getImgs();
+    var filterImg = [];
+    imgs.forEach(img => {
+        if (img.keywords.findIndex(imgKey => imgKey === key) !== -1) filterImg.push(img);
+    });
+    return filterImg.length
+}
 
+function showMore() {
+    var toTooggle = document.querySelectorAll('.on-more');
+    var elBtnMoreLess = document.querySelector('.more-less')
+    toTooggle.forEach(keyword => {
+        keyword.classList.toggle('hide');
+    });
+    if (elBtnMoreLess.innerText === 'more..') elBtnMoreLess.innerText = 'less..';
+    else elBtnMoreLess.innerText = 'more..';
+}
+
+function changeKeyWordsFontOnInit() {
+    var keyWords = document.querySelectorAll('.key');
+    keyWords.forEach(elKey => {
+        var size = calcFillterAmmount(elKey.innerText);
+        console.log(size);
+        elKey.style.fontSize += `${size * 5}px`
+    })
 }
 
 

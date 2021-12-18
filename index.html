@@ -15,9 +15,7 @@
 			<div class="nav flex">
 				<h1 class="flex gallery-button" onclick="renderGallery()">Gallery</h1>
 				<div>|</div>
-				<h1 class="flex gallery-button" onclick="renderSavedMemes()">
-					Saved Memes
-				</h1>
+				<h1 class="flex gallery-button" onclick="renderSavedMemes()">Saved Memes</h1>
 				<div>|</div>
 				<h1 class="flex gallery-button"><a href="#about-me">About-me</a></h1>
 			</div>
@@ -32,7 +30,20 @@
 					placeholder="Fillter"
 					oninput="onFilter(this.value)"
 				/>
-				<img class="search flex" src="/imgs/icons/search-icon.png" alt="" />
+				<img onclick="onFilter()" class="search flex" src="/imgs/icons/search-icon.png" alt="" />
+			</div>
+			<div class="keywords flex">
+				<ul class="flex">
+					<li onclick="onFilter('funny')" class="flex key">funny</li>
+					<li onclick="onFilter('tv')" class="flex key">tv</li>
+					<li onclick="onFilter('celebs')" class="flex key">celebs</li>
+					<li onclick="onFilter('baby')" class="flex key">baby</li>
+					<li onclick="onFilter('cute')" class="flex key">cute</li>
+					<li onclick="onFilter('politics')" class="flex hide on-more key">politics</li>
+					<li onclick="onFilter('dogs')" class="flex hide on-more key">dogs</li>
+					<li onclick="onFilter('cats')" class="flex hide on-more key">cats</li>
+					<li onclick="showMore()" class="flex more-less">more..</li>
+				</ul>
 			</div>
 			<datalist id="keys">
 				<option value="funny"></option>
@@ -56,11 +67,7 @@
 				<div class="info2 flex">
 					<p class="flex">Hi, my name is koren aharon and im a meme lord</p>
 					<div class="socials flex">
-						<a
-							target="blank"
-							href="https://www.instagram.com/koren854/"
-							class="flex"
-						>
+						<a target="blank" href="https://www.instagram.com/koren854/" class="flex">
 							<img class="social" src="imgs/icons/instagram.png" alt="" />
 						</a>
 						<a href="#" class="flex">
@@ -76,20 +83,10 @@
 
 		<section class="meme-edit hide">
 			<div class="control-box flex">
-				<canvas
-					class="my-canvas"
-					id="my-canvas"
-					height="500"
-					width="500"
-				></canvas>
+				<canvas class="my-canvas" id="my-canvas" height="500" width="500"></canvas>
 				<div class="controls flex">
 					<div class="control-box1 flex">
-						<input
-							oninput="onchangeText(this.value)"
-							class="line-add"
-							type="text"
-							autofocus
-						/>
+						<input oninput="onchangeText(this.value)" class="line-add" type="text" autofocus />
 					</div>
 					<div class="control-box2 flex">
 						<button onclick="onMoveY('add')">
@@ -110,39 +107,19 @@
 					</div>
 					<div class="control-box3 flex">
 						<button onclick="onFontSize('add')">
-							<img
-								class="up-font"
-								src="imgs/icons/increase font - icon.png"
-								alt=""
-							/>
+							<img class="up-font" src="imgs/icons/increase font - icon.png" alt="" />
 						</button>
 						<button onclick="onFontSize('subtract')">
-							<img
-								class="down-font"
-								src="imgs/icons/decrease font - icon.png"
-								alt=""
-							/>
+							<img class="down-font" src="imgs/icons/decrease font - icon.png" alt="" />
 						</button>
 						<button onclick="onMoveX('add')">
-							<img
-								class="align-left"
-								src="imgs/icons/align-to-left.png"
-								alt=""
-							/>
+							<img class="align-left" src="imgs/icons/align-to-left.png" alt="" />
 						</button>
 						<button onclick="onMoveX('center')">
-							<img
-								class="align-center"
-								src="imgs/icons/center-text-alignment.png"
-								alt=""
-							/>
+							<img class="align-center" src="imgs/icons/center-text-alignment.png" alt="" />
 						</button>
 						<button onclick="onMoveX('substract')">
-							<img
-								class="align-right"
-								src="imgs/icons/align-to-right.png"
-								alt=""
-							/>
+							<img class="align-right" src="imgs/icons/align-to-right.png" alt="" />
 						</button>
 					</div>
 					<div class="control-box4 flex">
@@ -151,39 +128,19 @@
 							<option name="Bangers" value="bangers">Bangers</option>
 							<option name="Fredoka-One" value="fredoka">Fredoka</option>
 							<option name="Orbitron" value="orbitron">Orbitron</option>
-							<option name="PermanentMarker" value="permanentMarker">
-								PermanentMarker
-							</option>
+							<option name="PermanentMarker" value="permanentMarker">PermanentMarker</option>
 						</select>
 						<div class="color-pick">
 							<button type="button">
-								<img
-									class="text-stroke"
-									src="imgs/icons/text stroke.png"
-									alt=""
-								/>
+								<img class="text-stroke" src="imgs/icons/text stroke.png" alt="" />
 							</button>
-							<input
-								oninput="onChangeStrokeColor(this.value,)"
-								value="#ffffff"
-								class="stroke-color"
-								type="color"
-							/>
+							<input oninput="onChangeStrokeColor(this.value,)" value="#ffffff" class="stroke-color" type="color" />
 						</div>
 						<div class="color-pick">
 							<button type="button">
-								<img
-									class="text-stroke"
-									src="imgs/icons/paint-board-and-brush.png"
-									alt=""
-								/>
+								<img class="text-stroke" src="imgs/icons/paint-board-and-brush.png" alt="" />
 							</button>
-							<input
-								oninput="onChangeTextColor(this.value,)"
-								value="#000000"
-								class="text-color"
-								type="color"
-							/>
+							<input oninput="onChangeTextColor(this.value,)" value="#000000" class="text-color" type="color" />
 						</div>
 					</div>
 					<div class="control-box5 flex">
@@ -193,14 +150,7 @@
 								<button>
 									<li>
 										Download as jpeg
-										<a
-											onclick="ondownload(this)"
-											id="download"
-											href="#"
-											class="flex"
-											download="my-img.jpeg"
-										>
-										</a>
+										<a onclick="ondownload(this)" id="download" href="#" class="flex" download="my-img.jpeg"> </a>
 									</li>
 								</button>
 								<button onclick="onSaveMeme()">
