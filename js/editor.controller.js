@@ -145,7 +145,8 @@ function OnShare() {
     elDownLoad.classList.toggle('hide');
     if (elDownLoad.classList.contains('hide')) gDownload = false;
     else gDownload = true
-    gCanvas.style.cursor = 'not-allowed'
+    if (!gDownload) gCanvas.style.cursor = 'grab'
+    else gCanvas.style.cursor = 'not-allowed'
     renderCanvas();
 }
 
