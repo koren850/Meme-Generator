@@ -37,11 +37,11 @@ function deleteLine() {
 
 }
 function moveY(diff) {
-    if (!gChosenLine) return;
+    if (!gChosenLine || gMeme.lines[gMeme.selectedLineIdx].posY + diff < 0 || gMeme.lines[gMeme.selectedLineIdx].posY + diff > gCanvas.height) return;
     gMeme.lines[gMeme.selectedLineIdx].posY += diff;
 }
 function moveX(diff) {
-    if (!gChosenLine) return;
+    if (!gChosenLine || gMeme.lines[gMeme.selectedLineIdx].posX + diff < 0 || gMeme.lines[gMeme.selectedLineIdx].posX + diff > gCanvas.width) return;
     if (diff === 'center') gMeme.lines[gMeme.selectedLineIdx].posX = gCanvas.width / 2
     else gMeme.lines[gMeme.selectedLineIdx].posX += diff;
 }
