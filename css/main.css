@@ -335,6 +335,7 @@ footer img {
 	padding: 0;
 	margin-inline-end: 50px;
 	flex-direction: row;
+	flex-wrap: wrap;
 }
 .keywords ul li {
 	font-family: montserrat;
@@ -350,6 +351,9 @@ footer img {
 	.gallery img,
 	.saved-memes img {
 		width: 180px;
+	}
+	.gallery {
+		margin-top: 80px;
 	}
 
 	.saved-memes,

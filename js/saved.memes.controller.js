@@ -8,7 +8,7 @@ function renderSavedMemes() {
     gElSavedMemes.classList.remove('hide');
     gElAboutMe.classList.remove('hide');
     gElGallery.classList.remove('hide');
-    gElFilters.classList.remove('hide');
+    gElFilters.classList.add('hide');
     gElGallery.classList.add('hide');
     gElMemeEdit.classList.add('hide');
     resetLines()

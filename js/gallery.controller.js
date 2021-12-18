@@ -75,7 +75,6 @@ function changeKeyWordsFontOnInit() {
     var keyWords = document.querySelectorAll('.key');
     keyWords.forEach(elKey => {
         var size = calcFillterAmmount(elKey.innerText);
-        console.log(size);
         elKey.style.fontSize += `${size * 5}px`
     })
 }
