@@ -115,7 +115,7 @@ function setLineTxt(txt) {
 }
 
 function addLine() {
-    if (gMeme.lines.length === 0) {
+    if (gMeme.lines.length === 0 || gMeme.lines[gMeme.lines.length - 1].posY + 70 > gCanvas.height) {
         gMeme.lines.push({
             txt: 'I sometimes eat Borekas',
             size: 20,
