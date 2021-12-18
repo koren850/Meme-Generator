@@ -14,16 +14,16 @@ function renderEditor(elImg, id) {
     gElFilters.classList.add('hide');
     gElSavedMemes.classList.add('hide');
     gElMemeEdit.classList.remove('hide');
+    gCanvas.style.cursor = 'grab'
     if (gCanvas.getBoundingClientRect().width === 300 && gCanvas.getBoundingClientRect().height === 300) {
         renderMobileLines();
         gMobile = true;
     }
     else gMobile = false;
-    renderImg(elImg, id);
+    setImgTorender(id);
 }
 
-function renderImg(elImg, id) {
-    gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
+function setImgTorender(id) {
     var img = getMemeByid(id);
     var memes = getMeme();
     memes.selectedImgId = img.id;
@@ -49,7 +49,8 @@ function drawText() {
         gCtx.textAlign = "center";
         gCtx.fillStyle = line.color;
         gCtx.fillText(`${line.txt}`, line.posX, line.posY);
-        gCtx.strokeStyle = line.strokeColor;
+        gCtx.strokeStyle = `${line.strokeColor}`;
+        gCtx.lineWidth = 2;
         gCtx.strokeText(`${line.txt}`, line.posX, line.posY);
         const textWidth = gCtx.measureText(line.txt).width;
         setLineWidth(textWidth, line);
@@ -124,6 +125,8 @@ function onMoveX(diff) {
 function onSetFont(font) {
     if (gDownload) return
     if (!gChosenLine) return;
+    var select = document.getElementById('select-font')
+    select.style.fontFamily = select.value
     setFont(font);
     renderCanvas();
 }
@@ -134,10 +137,12 @@ function ondownload(elLink) {
 }
 
 function OnShare() {
+    document.querySelector('.share').classList.toggle('red')
     var elDownLoad = document.querySelector('.control-box6')
     elDownLoad.classList.toggle('hide');
     if (elDownLoad.classList.contains('hide')) gDownload = false;
     else gDownload = true
+    gCanvas.style.cursor = 'not-allowed'
     renderCanvas();
 }
 
@@ -156,7 +161,6 @@ function addTouchListeners() {
 function onMove(ev) {
     if (!gIsClicking || !gCurrClickIsLine || gDownload) return;
     if (ev.offsetX >= gCanvas.width - 1 || ev.offsetX <= 1 || ev.offsetY >= gCanvas.height - 1 || ev.offsetY <= 1) {
-        console.log(ev);
         gIsClicking = false
         return
     }
@@ -195,7 +199,9 @@ function onDown(ev) {
 }
 
 function onUp(ev) {
+    if (gDownload) return;
     gIsClicking = false;
+    if (!gMobile) gCurrClickIsLine = false;
     if (!ev.type === 'touchend') gCurrClickIsLine = false;
     gCanvas.style.cursor = 'grab'
 }

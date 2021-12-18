@@ -80,16 +80,19 @@ header .logo {
 }
 
 .meme-edit button {
+	border-radius: 15px;
 	padding: 0;
 	height: 3.75rem;
 	width: 3.75rem;
 }
 .meme-edit img {
+	border-radius: 15px;
 	height: 3.4375rem;
 	width: 3.4375rem;
 }
 
 .line-add {
+	border-radius: 15px;
 	text-align: center;
 	font-size: 2rem;
 	width: 100%;
@@ -133,6 +136,9 @@ header .logo {
 	align-items: center;
 }
 .control-box4 select {
+	font-family: impact;
+	font-size: 2rem;
+	border-radius: 15px;
 	width: 136px;
 }
 .control-box4 select [name="impact"] {
@@ -163,14 +169,22 @@ header .logo {
 	height: 100%;
 	right: 10%;
 }
+.nav div {
+	font-size: 2em;
+}
 .gallery-button {
+	font-family: "montserrat";
 	cursor: pointer;
 	margin: 0;
+	transition: box-shadow 0.5s;
 }
 .gallery-button a {
 	text-decoration: none;
 	color: #000000;
 	transition: all ease 0.5s;
+}
+.gallery-button:hover {
+	box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.6);
 }
 
 .about-me {
@@ -193,7 +207,7 @@ header .logo {
 	font-size: 20px;
 	color: #000000;
 	font-weight: 400;
-	font-family: "Montserrat";
+	font-family: "montserrat";
 }
 .info2 {
 	flex-direction: column;
@@ -208,6 +222,7 @@ header .logo {
 	position: relative;
 	width: 45px;
 	height: 45px;
+	transition: all ease 0.5s;
 }
 .info2 a:hover {
 	background-color: #944d05;
@@ -242,11 +257,12 @@ footer img {
 	font-size: 19px;
 	color: #ffffff;
 	font-weight: 250;
-	font-family: "Montserrat";
+	font-family: "montserrat";
 	text-align: center;
 }
 
 .share-list {
+	padding: 0;
 	margin: 0;
 	list-style: none;
 }
@@ -292,9 +308,25 @@ footer img {
 	align-items: center;
 }
 .filters input {
+	text-align: center;
 	cursor: pointer;
 	height: 2rem;
 	margin-inline-start: 10px;
+}
+.search-input {
+	align-items: center;
+}
+.filters img {
+	cursor: pointer;
+	padding-inline-start: 5px;
+	height: 1.5rem;
+}
+[name="fillter"] {
+	font-family: montserrat;
+}
+
+.red {
+	background-color: red;
 }
 
 @media (max-width: 900px) {
@@ -324,12 +356,16 @@ footer img {
 		top: 0;
 		right: 0;
 		flex-direction: column;
+		text-align: center;
 		background-color: rgba(255, 255, 255, 0.9);
 		border-inline-start: 1px solid #e5e5e5;
 		width: 200px;
 		transform: translateX(100%);
 		z-index: 2;
 		transition: transform 0.6s, box-shadow 0.6s;
+	}
+	.nav div {
+		transform: rotate(90deg);
 	}
 
 	.nav h1 {

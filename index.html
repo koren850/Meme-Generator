@@ -14,19 +14,26 @@
 			<div onclick="openHamburger()" class="hamburger hide"></div>
 			<div class="nav flex">
 				<h1 class="flex gallery-button" onclick="renderGallery()">Gallery</h1>
+				<div>|</div>
 				<h1 class="flex gallery-button" onclick="renderSavedMemes()">
 					Saved Memes
-					<h1 class="flex gallery-button"><a href="#about-me">About-me</a></h1>
 				</h1>
+				<div>|</div>
+				<h1 class="flex gallery-button"><a href="#about-me">About-me</a></h1>
 			</div>
 		</header>
 		<section class="filters flex">
-			<input
-				class="flex"
-				list="keys"
-				placeholder="fillter"
-				oninput="onFilter(this.value)"
-			/>
+			<div class="flex search-input">
+				<input
+					name="fillter"
+					type="search"
+					class="flex"
+					list="keys"
+					placeholder="Fillter"
+					oninput="onFilter(this.value)"
+				/>
+				<img class="search flex" src="/imgs/icons/search-icon.png" alt="" />
+			</div>
 			<datalist id="keys">
 				<option value="funny"></option>
 				<option value="politics"></option>
@@ -139,7 +146,7 @@
 						</button>
 					</div>
 					<div class="control-box4 flex">
-						<select onchange="onSetFont(this.value)">
+						<select id="select-font" onchange="onSetFont(this.value)">
 							<option name="impact" value="impact">Impact</option>
 							<option name="Bangers" value="bangers">Bangers</option>
 							<option name="Fredoka-One" value="fredoka">Fredoka</option>
@@ -180,7 +187,7 @@
 						</div>
 					</div>
 					<div class="control-box5 flex">
-						<button onclick="OnShare()">Share</button>
+						<button class="share" onclick="OnShare()">Share</button>
 						<div class="control-box6 flex hide">
 							<ul class="share-list flex">
 								<button>
