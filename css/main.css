@@ -303,7 +303,7 @@ footer img {
 }
 
 .filters {
-	height: 100px;
+	margin-bottom: 10px;
 	width: 100%;
 	align-items: center;
 	justify-content: space-between;
@@ -338,6 +338,7 @@ footer img {
 	flex-wrap: wrap;
 }
 .keywords ul li {
+	cursor: pointer;
 	font-family: montserrat;
 	cursor: pointer;
 	margin-inline-start: 20px;
@@ -352,9 +353,6 @@ footer img {
 	.saved-memes img {
 		width: 180px;
 	}
-	.gallery {
-		margin-top: 80px;
-	}
 
 	.saved-memes,
 	.meme-edit {
@@ -362,7 +360,6 @@ footer img {
 	}
 
 	.filters {
-		height: 170px;
 		padding-top: 70px;
 	}
 
