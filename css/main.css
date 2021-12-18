@@ -406,7 +406,7 @@ footer img {
 		transition: transform 0.6s, box-shadow 0.6s;
 	}
 	.nav div {
-		transform: rotate(90deg);
+		display: none;
 	}
 
 	.nav h1 {

@@ -3,6 +3,7 @@
 function changeFontSize(diff) {
     if (!gChosenLine) return;
     var change = (diff === 'add') ? 2 : -2
+    if (gChosenLine.fontSize + change < 10) return
     gChosenLine.fontSize += change;
 }
 
