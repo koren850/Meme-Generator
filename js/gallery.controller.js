@@ -38,7 +38,7 @@ function renderMemes(fillter = 'none', imgs = null) {
     gElGallery.innerHTML = strHTML
 }
 
-function openHamburger() {
+function toggleHamburger() {
     document.querySelector('.nav').classList.toggle('open');
     document.querySelector('.black-screen').classList.toggle('active');
 }
