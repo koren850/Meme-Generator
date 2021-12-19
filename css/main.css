@@ -151,6 +151,7 @@ header .logo:hover {
 }
 
 .control-box {
+	height: 70vh;
 	justify-content: center;
 	align-items: center;
 }
@@ -467,6 +468,9 @@ footer img {
 		width: 300px;
 	}
 	.control-box {
+		margin-bottom: 20px;
+		margin-top: 20px;
+		height: auto;
 		gap: 10px;
 		flex-direction: column;
 	}

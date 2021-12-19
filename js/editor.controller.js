@@ -186,7 +186,7 @@ function onDown(ev) {
         return (ev.offsetX > (line.posX - line.width / 2) - 10 &&
             ev.offsetX < (line.posX + line.width / 2) + 10 &&
             ev.offsetY > (line.posY - line.fontSize) - 5 &&
-            ev.offsetY < ((line.posY - line.fontSize) - 5) + (line.size + line.fontSize))
+            ev.offsetY < ((line.posY - line.fontSize) + 5) + (line.size + line.fontSize))
     });
     if (clickedLineIdx === -1) return
 
