@@ -145,6 +145,10 @@ header .logo:hover {
 	flex-direction: column;
 	gap: 1rem;
 }
+.controls button {
+	font-family: "montserrat";
+}
+
 .controls button,
 .controls select,
 .color-pick {
