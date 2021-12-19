@@ -143,10 +143,23 @@ function OnShare() {
     document.querySelector('.share').classList.toggle('red')
     var elDownLoad = document.querySelector('.control-box6')
     elDownLoad.classList.toggle('hide');
-    if (elDownLoad.classList.contains('hide')) gDownload = false;
-    else gDownload = true
+    if (elDownLoad.classList.contains('hide')) {
+        gDownload = false;
+        document.querySelector('.line-add').disabled = false;
+        document.getElementById('select-font').disabled = false;
+        document.querySelector('.stroke-color').disabled = false;
+        document.querySelector('.text-color').disabled = false;
+    }
+    else {
+        gDownload = true;
+        document.querySelector('.line-add').disabled = true;
+        document.getElementById('select-font').disabled = true;
+        document.querySelector('.stroke-color').disabled = true;
+        document.querySelector('.text-color').disabled = true;
+    }
     if (!gDownload) gCanvas.style.cursor = 'grab'
     else gCanvas.style.cursor = 'not-allowed'
+
     renderCanvas();
 }
 
