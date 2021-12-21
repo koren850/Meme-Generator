@@ -184,7 +184,7 @@ function onMove(ev) {
     const pos = getEvPos(ev)
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
-    moveCircle(dx, dy)
+    moveText(dx, dy)
     gStartPos = pos
     renderCanvas()
 }
@@ -246,7 +246,7 @@ function getEvPos(ev) {
     return pos
 }
 
-function moveCircle(dx, dy) {
+function moveText(dx, dy) {
     gChosenLine.posX += dx
     gChosenLine.posY += dy
 
